@@ -1,6 +1,8 @@
 ﻿// Дополнительная задача 2 (задача со звёздочкой): 
 // Вывести первые n строк треугольника Паскаля. Реализовать вывод в виде равнобедренного треугольника.
 
+Console.Clear();
+
 void GetPascalTriangle(int N)
 {
     int Strok = N;
@@ -15,15 +17,14 @@ void GetPascalTriangle(int N)
             if(j == Lcount || j == Rcount)
             {
             PascalTriangle[i,j] = 1;
-            Console.Write(PascalTriangle[i,j]);
             }
             else if(j > Lcount && j < Rcount)
             {
                 PascalTriangle[i,j] = PascalTriangle[i - 1, j - 1] + PascalTriangle[i - 1, j + 1];
-                if(PascalTriangle[i,j] == 0) Console.Write(" ");
-                else Console.Write(PascalTriangle[i,j]);
             }
-            else Console.Write(" ");
+            else PascalTriangle[i,j] = 0;
+            if(PascalTriangle[i,j] == 0) Console.Write(" ");
+            else Console.Write(PascalTriangle[i,j]);
         }
         Lcount--;
         Rcount++;
